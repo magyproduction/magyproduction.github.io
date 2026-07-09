@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magy Production — Filmmaker & Video Editor</title>
+<meta name="description" content="Magy Production — portofoliu personal. Filmmaker & video editor.">
+<link rel="canonical" href="https://magyproduction.ro/personal/">
+<meta property="og:title" content="Magy Production — Personal">
+<meta property="og:url" content="https://magyproduction.ro/personal/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#050505;
+    --cream:#f4ecd8;
+    --emerald:#10b981;
+    --muted:#7d7a70;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:auto}
+  html.lenis,html.lenis body{height:auto}
+  .lenis.lenis-smooth{scroll-behavior:auto!important}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--emerald);color:#000}
+  ::-webkit-scrollbar{width:8px}
+  ::-webkit-scrollbar-track{background:var(--ink)}
+  ::-webkit-scrollbar-thumb{background:#222;border-radius:8px}
+
+  .display{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;line-height:.88;letter-spacing:.01em}
+
+  /* ---------- LOADER ---------- */
+  .loader{
+    position:fixed;inset:0;background:var(--ink);
+    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:18px;
+    z-index:200;transition:opacity .7s ease,visibility .7s;
+  }
+  .loader.done{opacity:0;visibility:hidden}
+  .loader .name{font-size:clamp(28px,5vw,54px);color:var(--cream)}
+  .loader .name i{font-style:normal;color:var(--emerald)}
+  .loader .pct{font-size:13px;letter-spacing:.4em;color:var(--muted);font-variant-numeric:tabular-nums}
+  .loader .bar{width:min(320px,70vw);height:1px;background:#1c1c1c;overflow:hidden}
+  .loader .bar i{display:block;height:100%;width:0;background:var(--emerald);transition:width .2s ease}
+
+  /* ---------- NAV ---------- */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:90;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:20px clamp(20px,4vw,48px);
+    transition:all .35s ease;
+  }
+  .topbar.scrolled{background:rgba(5,5,5,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-top:13px;padding-bottom:13px;border-bottom:1px solid #161616}
+  .logo{font-family:'Anton',sans-serif;font-size:17px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);text-decoration:none}
+  .logo i{font-style:normal;color:var(--emerald)}
+  .navlinks{display:flex;gap:26px;align-items:center}
+  .navlinks a{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s}
+  .navlinks a:hover{color:var(--cream)}
+
+  /* ---------- ACT 1 : ORBIT ---------- */
+  .act1{height:450vh;position:relative}
+  .stage{position:sticky;top:0;height:100vh;overflow:hidden}
+  #orbit{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .act-label{
+    position:absolute;top:15vh;left:clamp(20px,4vw,48px);
+    font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--emerald);
+  }
+  .hero-type{
+    position:absolute;inset:0;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;pointer-events:none;
+  }
+  .hero-type .line{display:block;font-size:clamp(64px,16.5vw,260px);color:var(--cream)}
+  .hero-type .line.l2{color:transparent;-webkit-text-stroke:1.5px var(--cream)}
+  .hero-type .ch{display:inline-block;opacity:0;transform:translateY(.35em) rotate(4deg);will-change:transform,opacity;filter:blur(6px)}
+  .hero-sub{
+    margin-top:26px;font-size:clamp(11px,1.4vw,14px);letter-spacing:.5em;text-transform:uppercase;
+    color:var(--muted);opacity:0;transform:translateY(20px);transition:none;will-change:opacity,transform;
+  }
+  .hero-sub b{color:var(--emerald);font-weight:500}
+  .hero-hint{
+    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+    font-size:10.5px;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:.25}50%{opacity:.9}}
+
+  /* ---------- ACT 2 : BUILDER ---------- */
+  .act2{height:320vh;position:relative;background:var(--ink)}
+  .b-video{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:min(340px,42vw);aspect-ratio:9/16;border-radius:14px;overflow:hidden;
+    box-shadow:0 40px 120px rgba(0,0,0,.75),0 0 0 1px #191919;
+    will-change:transform;
+  }
+  .b-video video{width:100%;height:100%;object-fit:cover}
+  .b-head{
+    position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;pointer-events:none;mix-blend-mode:difference;
+  }
+  .b-head .w{display:inline-block;font-size:clamp(44px,9.5vw,150px);color:var(--cream);opacity:0;transform:translateY(.4em);will-change:transform,opacity;margin:0 .12em}
+  .float-screen{
+    position:absolute;width:clamp(90px,11vw,170px);aspect-ratio:9/16;border-radius:10px;overflow:hidden;
+    box-shadow:0 24px 70px rgba(0,0,0,.7),0 0 0 1px #1a1a1a;opacity:.85;will-change:transform;
+  }
+  .float-screen video{width:100%;height:100%;object-fit:cover}
+  .fs1{left:12%;top:20%}
+  .fs2{right:11%;top:26%}
+  .fs3{left:18%;bottom:16%}
+  .fs4{right:17%;bottom:12%}
+  @media(max-width:680px){
+    .fs1{left:4%;top:14%}.fs2{right:4%;top:18%}.fs3{left:8%;bottom:10%}.fs4{right:6%;bottom:8%}
+    .b-video{width:56vw}
+  }
+
+  /* ---------- ACT 3 : CLOSER ---------- */
+  .act3{height:320vh;position:relative}
+  .c-video{
+    position:absolute;inset:0;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .c-video video{
+    width:100%;height:100%;object-fit:cover;
+    transform:scale(.72);will-change:transform,clip-path;
+    clip-path:inset(18% 24% 18% 24% round 18px);
+  }
+  .c-veil{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(5,5,5,.75) 100%);pointer-events:none}
+  .c-head{
+    position:absolute;inset:0;display:flex;justify-content:center;align-items:center;text-align:center;
+    pointer-events:none;
+  }
+  .c-head .display{font-size:clamp(40px,9vw,140px);color:var(--cream);text-shadow:0 6px 60px rgba(0,0,0,.8)}
+  .c-head .w{display:inline-block;opacity:0;transform:translateY(.4em);will-change:transform,opacity;margin:0 .12em}
+  .c-head .em{color:var(--emerald)}
+
+  /* ---------- FOOTER ---------- */
+  footer{position:relative;padding:16vh clamp(20px,4vw,48px) 44px;background:var(--ink)}
+  .cta{
+    display:block;text-decoration:none;text-align:center;
+    font-size:clamp(44px,9.5vw,150px);color:var(--cream);
+  }
+  .cta .stroke{color:transparent;-webkit-text-stroke:1.3px var(--cream);transition:all .3s}
+  .cta:hover .stroke{color:var(--emerald);-webkit-text-stroke:0}
+  .cta .arrow{color:var(--emerald);display:inline-block;transition:transform .3s}
+  .cta:hover .arrow{transform:translateX(16px)}
+  .foot-row{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
+    margin-top:14vh;padding-top:24px;border-top:1px solid #161616;
+    font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#4e4b44;
+  }
+  .foot-row a{color:var(--muted);text-decoration:none;transition:color .25s}
+  .foot-row a:hover{color:var(--cream)}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader">
+  <div class="name display">Magy<i>.</i>Production</div>
+  <div class="bar"><i id="bar"></i></div>
+  <div class="pct" id="pct">000</div>
+</div>
+
+<nav class="topbar" id="topbar">
+  <a class="logo" href="#">Magy<i>.</i></a>
+  <div class="navlinks">
+    <a href="../">Portofoliu</a>
+    <a href="../contact/">Contact</a>
+  </div>
+</nav>
+
+<!-- ACT 1 — HERO ORBIT (scroll-scrub canvas) -->
+<section class="act1" id="act1">
+  <div class="stage">
+    <canvas id="orbit"></canvas>
+    <div class="act-label">01 — The Orbit</div>
+    <div class="hero-type">
+      <h1 class="display">
+        <span class="line l1" data-split>MAGY</span>
+        <span class="line l2" data-split>PRODUCTION</span>
+      </h1>
+      <div class="hero-sub" id="heroSub">Filmmaker <b>&amp;</b> Video Editor</div>
+    </div>
+    <div class="hero-hint">Scroll — orbita e în mâinile tale</div>
+  </div>
+</section>
+
+<!-- ACT 2 — THE BUILDER -->
+<section class="act2" id="act2">
+  <div class="stage">
+    <div class="act-label">02 — The Builder</div>
+    <div class="float-screen fs1" data-speed="-14"><video src="../videos/la-rocca.mp4#t=0.5" muted loop playsinline preload="metadata"></video></div>
+    <div class="float-screen fs2" data-speed="10"><video src="../videos/dj-dia-crazy.mp4#t=0.5" muted loop playsinline preload="metadata"></video></div>
+    <div class="float-screen fs3" data-speed="8"><video src="../videos/said-1.mp4#t=0.5" muted loop playsinline preload="metadata"></video></div>
+    <div class="float-screen fs4" data-speed="-9"><video src="../videos/prive.mp4#t=0.5" muted loop playsinline preload="metadata"></video></div>
+    <div class="b-video" id="bVideo"><video src="../videos/the-bts.mp4#t=0.5" muted loop playsinline preload="metadata"></video></div>
+    <div class="b-head display" id="bHead">
+      <div><span class="w">I</span><span class="w">BUILD</span><span class="w">STORIES</span></div>
+      <div><span class="w">FRAME</span><span class="w">BY</span><span class="w">FRAME</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACT 3 — THE CLOSER -->
+<section class="act3" id="act3">
+  <div class="stage">
+    <div class="c-video"><video id="cVid" src="../videos/siri-im-back.mp4#t=0.5" muted loop playsinline preload="metadata"></video></div>
+    <div class="c-veil"></div>
+    <div class="act-label">03 — The Closer</div>
+    <div class="c-head display" id="cHead">
+      <div>
+        <div><span class="w">EVERY</span><span class="w">FRAME</span></div>
+        <div><span class="w em">EARNS</span><span class="w">ITS</span><span class="w">PLACE</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a class="cta display" href="mailto:contact@magyproduction.ro">
+    Let's make<br><span class="stroke">something unforgettable</span> <span class="arrow">→</span>
+  </a>
+  <div class="foot-row">
+    <span>© 2026 Magy Production</span>
+    <a href="../index.html">Portofoliu clienți</a>
+    <a href="mailto:contact@magyproduction.ro">contact@magyproduction.ro</a>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   SECVENȚA ORBIT — când ai clipul real (Higgsfield sau filmat):
+   1. pui clipul aici, în folderul personal/
+   2. rulezi:  ffmpeg -i orbit.mp4 -vf "fps=16,scale=1536:-2" -q:v 80 frames/f_%03d.webp
+      (numerotare de la f_000; ~128 cadre pentru 8s)
+   3. actualizezi FRAME_COUNT mai jos dacă diferă. Atât.
+   ============================================================ */
+const FRAME_COUNT = 128;
+const framePath = i => "frames/f_" + String(i).padStart(3, "0") + ".webp";
+
+const lerp = (a, b, t) => a + (b - a) * t;
+const clamp01 = v => Math.max(0, Math.min(1, v));
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- split letters ---------- */
+document.querySelectorAll("[data-split]").forEach(el => {
+  const txt = el.textContent;
+  el.textContent = "";
+  [...txt].forEach(c => {
+    const s = document.createElement("span");
+    s.className = "ch";
+    s.textContent = c;
+    el.appendChild(s);
+  });
+});
+const chars1 = [...document.querySelectorAll(".l1 .ch")];
+const chars2 = [...document.querySelectorAll(".l2 .ch")];
+const heroSub = document.getElementById("heroSub");
+
+/* ---------- preload frames ---------- */
+const frames = new Array(FRAME_COUNT);
+let loaded = 0;
+const bar = document.getElementById("bar"), pct = document.getElementById("pct"), loader = document.getElementById("loader");
+function onOne(){
+  loaded++;
+  const p = Math.round(loaded / FRAME_COUNT * 100);
+  bar.style.width = p + "%";
+  pct.textContent = String(p).padStart(3, "0");
+  if (loaded === FRAME_COUNT) setTimeout(() => loader.classList.add("done"), 350);
+}
+for (let i = 0; i < FRAME_COUNT; i++){
+  const img = new Image();
+  img.onload = onOne;
+  img.onerror = onOne;
+  img.src = framePath(i);
+  frames[i] = img;
+}
+
+/* ---------- canvas ---------- */
+const canvas = document.getElementById("orbit");
+const ctx = canvas.getContext("2d");
+let cw = 0, ch = 0, dpr = 1;
+function resize(){
+  dpr = Math.min(devicePixelRatio || 1, 2);
+  cw = canvas.clientWidth; ch = canvas.clientHeight;
+  canvas.width = Math.round(cw * dpr);
+  canvas.height = Math.round(ch * dpr);
+  drawnFrame = -1; // forțează redesenarea
+}
+addEventListener("resize", resize);
+
+let drawnFrame = -1;
+function draw(fi){
+  const img = frames[fi];
+  if (!img || !img.complete || !img.naturalWidth) return;
+  if (fi === drawnFrame) return;
+  drawnFrame = fi;
+  const s = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+  const w = img.naturalWidth * s, h = img.naturalHeight * s;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, cw, ch);
+  ctx.drawImage(img, (cw - w) / 2, (ch - h) / 2, w, h);
+}
+
+/* ---------- lenis (CDN) cu fallback nativ ---------- */
+let lenis = null;
+const s = document.createElement("script");
+s.src = "https://unpkg.com/lenis@1/dist/lenis.min.js";
+s.onload = () => {
+  if (reduceMotion || !window.Lenis) return;
+  lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 1 });
+  document.documentElement.classList.add("lenis", "lenis-smooth");
+  function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+};
+document.head.appendChild(s);
+
+/* ---------- progres secțiuni ---------- */
+const act1 = document.getElementById("act1");
+const act2 = document.getElementById("act2");
+const act3 = document.getElementById("act3");
+function prog(el){
+  const r = el.getBoundingClientRect();
+  const total = el.offsetHeight - innerHeight;
+  return clamp01(-r.top / total);
+}
+/* fereastră de progres: activ între a..b */
+const win = (p, a, b) => clamp01((p - a) / (b - a));
+const ease = t => t < .5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2) / 2;
+
+/* ---------- act 2/3 elemente ---------- */
+const bVideo = document.getElementById("bVideo");
+const bWords = [...document.querySelectorAll("#bHead .w")];
+const floats = [...document.querySelectorAll(".float-screen")];
+const cVid = document.getElementById("cVid");
+const cWords = [...document.querySelectorAll("#cHead .w")];
+const topbar = document.getElementById("topbar");
+
+/* pornește/oprește videoclipurile când actul e vizibil */
+const vidObs = new IntersectionObserver(es => {
+  es.forEach(e => {
+    e.target.querySelectorAll("video").forEach(v => {
+      if (e.isIntersecting){ v.play().catch(()=>{}); } else v.pause();
+    });
+  });
+}, { threshold: 0.05 });
+vidObs.observe(act2); vidObs.observe(act3);
+
+/* ---------- bucla principală ---------- */
+let targetFrame = 0, currentFrame = 0;
+function tick(){
+  topbar.classList.toggle("scrolled", scrollY > 40);
+
+  /* ACT 1 — scrub orbit */
+  const p1 = prog(act1);
+  targetFrame = p1 * (FRAME_COUNT - 1);
+  currentFrame = reduceMotion ? targetFrame : lerp(currentFrame, targetFrame, 0.16);
+  if (Math.abs(currentFrame - targetFrame) < 0.02) currentFrame = targetFrame;
+  draw(Math.round(currentFrame));
+
+  /* litere: MAGY intră pe 0.03–0.34, PRODUCTION pe 0.10–0.44 */
+  chars1.forEach((c, i) => {
+    const t = ease(win(p1, 0.03 + i * 0.028, 0.14 + i * 0.028));
+    c.style.opacity = t;
+    c.style.transform = `translateY(${(1 - t) * 0.35}em) rotate(${(1 - t) * 4}deg)`;
+    c.style.filter = `blur(${(1 - t) * 6}px)`;
+  });
+  chars2.forEach((c, i) => {
+    const t = ease(win(p1, 0.10 + i * 0.022, 0.20 + i * 0.022));
+    c.style.opacity = t;
+    c.style.transform = `translateY(${(1 - t) * 0.35}em) rotate(${(1 - t) * -3}deg)`;
+    c.style.filter = `blur(${(1 - t) * 6}px)`;
+  });
+  const ts = ease(win(p1, 0.42, 0.55));
+  heroSub.style.opacity = ts;
+  heroSub.style.transform = `translateY(${(1 - ts) * 20}px)`;
+
+  /* ACT 2 — push-in + cuvinte + ecrane flotante */
+  const p2 = prog(act2);
+  const push = 0.62 + ease(win(p2, 0, 0.75)) * 0.55;
+  bVideo.style.transform = `translate(-50%,-50%) scale(${push})`;
+  bWords.forEach((w, i) => {
+    const t = ease(win(p2, 0.08 + i * 0.055, 0.2 + i * 0.055));
+    w.style.opacity = t;
+    w.style.transform = `translateY(${(1 - t) * 0.4}em)`;
+  });
+  floats.forEach(f => {
+    const sp = parseFloat(f.dataset.speed);
+    f.style.transform = `translateY(${(p2 - 0.5) * sp * 10}px)`;
+  });
+
+  /* ACT 3 — reveal + scale + cuvinte */
+  const p3 = prog(act3);
+  const rv = ease(win(p3, 0, 0.55));
+  const sc = 0.72 + rv * 0.28;
+  const ins = 18 - rv * 18, insX = 24 - rv * 24, rad = 18 - rv * 18;
+  cVid.style.transform = `scale(${sc})`;
+  cVid.style.clipPath = `inset(${ins}% ${insX}% ${ins}% ${insX}% round ${rad}px)`;
+  cWords.forEach((w, i) => {
+    const t = ease(win(p3, 0.5 + i * 0.05, 0.62 + i * 0.05));
+    w.style.opacity = t;
+    w.style.transform = `translateY(${(1 - t) * 0.4}em)`;
+  });
+
+  requestAnimationFrame(tick);
+}
+
+resize();
+requestAnimationFrame(tick);
+</script>
+</body>
+</html>

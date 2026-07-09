@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Magy Production</title>
+<meta name="description" content="Contact Magy Production — email și Instagram.">
+<link rel="canonical" href="https://magyproduction.ro/contact/">
+<meta property="og:title" content="Contact — Magy Production">
+<meta property="og:url" content="https://magyproduction.ro/contact/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#050505;
+    --cream:#f4ecd8;
+    --emerald:#10b981;
+    --muted:#7d7a70;
+    --line:#191919;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--emerald);color:#000}
+  .display{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;line-height:.9;letter-spacing:.01em}
+
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:90;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:20px clamp(20px,4vw,48px);
+    background:rgba(5,5,5,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .logo{font-family:'Anton',sans-serif;font-size:17px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);text-decoration:none}
+  .logo i{font-style:normal;color:var(--emerald)}
+  .navlinks{display:flex;gap:24px;align-items:center}
+  .navlinks a{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s}
+  .navlinks a:hover,.navlinks a.on{color:var(--cream)}
+
+  main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:16vh clamp(20px,6vw,90px) 8vh;
+    position:relative;
+  }
+  main::before{
+    content:"";
+    position:absolute;
+    right:-10vw;top:-10vh;
+    width:60vw;height:60vw;
+    background:radial-gradient(circle,rgba(16,185,129,.07) 0%,transparent 60%);
+    pointer-events:none;
+  }
+  .row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:6px 24px;
+    padding:34px 0;
+    border-top:1px solid var(--line);
+    text-decoration:none;
+    opacity:0;
+    transform:translateY(26px);
+    transition:opacity .7s ease,transform .7s cubic-bezier(.22,.61,.36,1);
+  }
+  .row.in{opacity:1;transform:translateY(0)}
+  .row:last-of-type{border-bottom:1px solid var(--line)}
+  .row .label{
+    font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);
+    transition:color .25s;
+  }
+  .row .value{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(22px,4.6vw,64px);
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    color:var(--cream);
+    transition:color .25s;
+    word-break:break-all;
+  }
+  .row .arrow{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(22px,4.6vw,64px);
+    color:var(--emerald);
+    display:inline-block;
+    transition:transform .3s;
+  }
+  .row:hover .value{color:var(--emerald)}
+  .row:hover .arrow{transform:translate(10px,-6px)}
+
+  footer{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
+    padding:22px clamp(20px,4vw,48px) 30px;
+    border-top:1px solid var(--line);
+    font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#4e4b44;
+  }
+  footer a{color:var(--muted);text-decoration:none;transition:color .25s}
+  footer a:hover{color:var(--cream)}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a class="logo" href="../">Magy<i>.</i></a>
+  <div class="navlinks">
+    <a href="../#lucrari">Portofoliu</a>
+    <a href="../personal/">Personal</a>
+    <a href="./" class="on">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <a class="row" href="mailto:contact@magyproduction.ro">
+    <span class="label">Email</span>
+    <span class="value">contact@magyproduction.ro <span class="arrow">→</span></span>
+  </a>
+  <a class="row" href="https://instagram.com/bagel.magy" target="_blank" rel="noopener">
+    <span class="label">Instagram</span>
+    <span class="value">@bagel.magy <span class="arrow">→</span></span>
+  </a>
+</main>
+
+<footer>
+  <span>© 2026 Magy Production</span>
+  <a href="../">Înapoi la portofoliu</a>
+</footer>
+
+<script>
+const rows = [...document.querySelectorAll(".row")];
+requestAnimationFrame(() => {
+  rows.forEach((r, i) => setTimeout(() => r.classList.add("in"), 200 + i * 160));
+});
+</script>
+</body>
+</html>
