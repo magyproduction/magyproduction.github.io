@@ -10,7 +10,10 @@
 <meta property="og:description" content="Filmare și editare video: branduri, clinici, imobiliare, evenimente.">
 <meta property="og:url" content="https://magyproduction.ro/">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://magyproduction.ro/assets/erou.webp">
+<meta property="og:image" content="https://magyproduction.ro/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -310,8 +313,8 @@ const VIDEOS = [
   { title: "Behind the Scenes",            category: "Personal",   file: "videos/the-bts.mp4",         vertical: true },
 ];
 
-const FRAME_COUNT = 64;                       // subset: f_000, f_002, ... f_126
-const framePath = j => "personal/frames/f_" + String(j * 2).padStart(3, "0") + ".webp";
+const FRAME_COUNT = 128;
+const framePath = j => "personal/frames/f_" + String(j).padStart(3, "0") + ".webp";
 
 const lerp = (a, b, t) => a + (b - a) * t;
 const clamp01 = v => Math.max(0, Math.min(1, v));
@@ -331,6 +334,15 @@ document.querySelectorAll("[data-split]").forEach(el => {
 });
 const chars1 = [...document.querySelectorAll(".l1 .ch")];
 const chars2 = [...document.querySelectorAll(".l2 .ch")];
+const l1El = document.querySelector(".l1");
+const l2El = document.querySelector(".l2");
+
+/* parallax la mouse */
+let tmx = 0, tmy = 0, pmx = 0, pmy = 0;
+addEventListener("mousemove", e => {
+  tmx = (e.clientX / innerWidth - .5) * 2;
+  tmy = (e.clientY / innerHeight - .5) * 2;
+}, { passive: true });
 
 /* ---------- loader: poze + cadre ---------- */
 const frames = new Array(FRAME_COUNT);
@@ -427,7 +439,13 @@ function tick(){
   const ts = ease(win(p1, 0.44, 0.58));
   sub1.style.opacity = ts;
   sub1.style.transform = `translateY(${(1 - ts) * 20}px)`;
-  canvas.style.transform = `scale(${1 + p1 * .06})`;
+  if (!reduceMotion){
+    pmx = lerp(pmx, tmx, 0.06);
+    pmy = lerp(pmy, tmy, 0.06);
+  }
+  canvas.style.transform = `scale(${1 + p1 * .06}) translate(${pmx * 10}px, ${pmy * 7}px)`;
+  l1El.style.transform = `translate(${pmx * -16}px, ${pmy * -9}px)`;
+  l2El.style.transform = `translate(${pmx * 20}px, ${pmy * 12}px)`;
 
   /* slide 2 */
   const p2 = prog(act2);
