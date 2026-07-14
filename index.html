@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Magy Production — Filmmaker & Video Editor</title>
-<meta name="description" content="Magy Production — filmare și editare video: branduri, clinici, imobiliare, evenimente.">
+<title>Magy Production — Videograf București | Filmare & Editare Video</title>
+<meta name="description" content="Videograf în București: filmare și editare video pentru branduri, clinici, imobiliare, evenimente și automotive. Video care arată ca la film — Magy Production.">
 <link rel="canonical" href="https://magyproduction.ro/">
-<meta property="og:title" content="Magy Production — Filmmaker & Video Editor">
-<meta property="og:description" content="Filmare și editare video: branduri, clinici, imobiliare, evenimente.">
+<meta property="og:title" content="Magy Production — Videograf București">
+<meta property="og:description" content="Filmare și editare video în București: branduri, clinici, imobiliare, evenimente, automotive.">
 <meta property="og:url" content="https://magyproduction.ro/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://magyproduction.ro/assets/og.jpg">
@@ -17,16 +17,60 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": ["ProfessionalService", "LocalBusiness"],
   "name": "Magy Production",
   "alternateName": "Magy",
-  "description": "Filmare și editare video pentru branduri, clinici, imobiliare și evenimente. Filmmaker & video editor.",
+  "description": "Videograf în București: filmare și editare video pentru branduri, clinici, imobiliare, evenimente și automotive. De la concept la exportul final, inclusiv color grading.",
   "url": "https://magyproduction.ro/",
   "email": "contact@magyproduction.ro",
   "image": "https://magyproduction.ro/assets/og.jpg",
-  "areaServed": "România",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "București",
+    "addressCountry": "RO"
+  },
+  "areaServed": ["București", "Ilfov", "România"],
   "sameAs": ["https://instagram.com/bagel.magy"],
-  "knowsAbout": ["videografie", "editare video", "color grading", "video evenimente", "video imobiliare", "video branduri"]
+  "knowsAbout": ["videografie", "editare video", "color grading", "video evenimente", "video imobiliare", "video branduri", "video automotive", "video clinici"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicii video",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Video pentru branduri și afaceri", "areaServed": "București" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Video pentru clinici și cabinete medicale", "areaServed": "București" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Video pentru imobiliare", "areaServed": "București" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Video pentru evenimente", "areaServed": "București" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Video automotive", "areaServed": "București" } }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Ce servicii oferă Magy Production?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Filmare și editare video în București: video pentru branduri, clinici, imobiliare, evenimente și automotive. Totul cap-coadă — concept, filmare, montaj și color grading." }
+    },
+    {
+      "@type": "Question",
+      "name": "Unde filmezi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Baza e în București, dar sunt disponibil pentru proiecte în toată România." }
+    },
+    {
+      "@type": "Question",
+      "name": "Cât durează livrarea unui videoclip?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Depinde de complexitatea proiectului — de regulă, un clip de social media se livrează în câteva zile lucrătoare de la filmare." }
+    },
+    {
+      "@type": "Question",
+      "name": "Cum cer o ofertă?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Scrie-mi la contact@magyproduction.ro sau pe Instagram @bagel.magy cu câteva detalii despre proiect și primești rapid un răspuns." }
+    }
+  ]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -224,8 +268,31 @@
   }
   .close:hover{background:var(--emerald);border-color:var(--emerald);color:#031b12;transform:rotate(90deg)}
 
+  /* ---------- FAQ ---------- */
+  .faq{padding:0 clamp(20px,4vw,48px) 80px;max-width:860px;margin:0 auto}
+  .faq h3{
+    font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);
+    margin-bottom:18px;font-weight:500;
+  }
+  .faq details{border-top:1px solid var(--line)}
+  .faq details:last-of-type{border-bottom:1px solid var(--line)}
+  .faq summary{
+    cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;
+    padding:18px 0;font-family:'Anton',sans-serif;font-size:clamp(15px,1.8vw,20px);
+    text-transform:uppercase;letter-spacing:.03em;color:var(--cream);
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--emerald);font-size:22px;transition:transform .25s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq p{color:var(--muted);font-size:14.5px;line-height:1.7;padding:0 0 20px;max-width:60ch}
+  .faq a{color:var(--cream);text-decoration:none;border-bottom:1px solid #333}
+
   /* ---------- FOOTER ---------- */
   footer{border-top:1px solid var(--line);padding:12vh clamp(20px,4vw,48px) 40px}
+  .seo-line{
+    text-align:center;color:#5a574f;font-size:12.5px;line-height:1.8;
+    max-width:62ch;margin:36px auto 0;
+  }
   .cta{
     display:block;text-decoration:none;text-align:center;
     font-size:clamp(48px,9vw,140px);color:var(--cream);
@@ -266,7 +333,7 @@
     <canvas id="mCanvas"></canvas>
     <div class="l1 display" data-split>MAGY</div>
     <div class="l2 display" data-split>PRODUCTION</div>
-    <div class="sub" id="sub1">Filmmaker <b>&amp;</b> Video Editor</div>
+    <div class="sub" id="sub1">Filmmaker <b>&amp;</b> Video Editor — București</div>
     <div class="act-label">01 — Magy Production</div>
     <div class="hint">Scroll</div>
   </div>
@@ -297,6 +364,26 @@
   <main class="grid" id="grid"></main>
 </section>
 
+<section class="faq" id="faq">
+  <h3>Întrebări frecvente</h3>
+  <details>
+    <summary>Ce servicii oferă Magy Production?</summary>
+    <p>Filmare și editare video în București: video pentru branduri, clinici, imobiliare, evenimente și automotive. Totul cap-coadă — concept, filmare, montaj și color grading.</p>
+  </details>
+  <details>
+    <summary>Unde filmezi?</summary>
+    <p>Baza e în București, dar sunt disponibil pentru proiecte în toată România.</p>
+  </details>
+  <details>
+    <summary>Cât durează livrarea unui videoclip?</summary>
+    <p>Depinde de complexitatea proiectului — de regulă, un clip de social media se livrează în câteva zile lucrătoare de la filmare.</p>
+  </details>
+  <details>
+    <summary>Cum cer o ofertă?</summary>
+    <p>Scrie-mi la <a href="mailto:contact@magyproduction.ro">contact@magyproduction.ro</a> sau pe Instagram <a href="https://instagram.com/bagel.magy" target="_blank" rel="noopener">@bagel.magy</a> cu câteva detalii despre proiect și primești rapid un răspuns.</p>
+  </details>
+</section>
+
 <div class="lightbox" id="lightbox">
   <div class="lb-title" id="lbTitle"></div>
   <button class="close" id="closeBtn" aria-label="Închide">✕</button>
@@ -307,6 +394,7 @@
   <a class="cta display" href="contact/">
     Contact <span class="arrow">→</span>
   </a>
+  <p class="seo-line">Magy Production — videograf în București. Filmare și editare video pentru branduri, clinici, agenții imobiliare, evenimente și automotive. Disponibil în toată România.</p>
   <div class="foot-row">
     <span>© 2026 Magy Production</span>
     <a href="personal/">Site personal</a>
