@@ -354,7 +354,7 @@
 <!-- SLIDE 2 -->
 <section class="act2" id="act2">
   <div class="stage">
-    <img class="p-editor" id="pEditor" src="assets/editor.webp" alt="Magy — editor">
+    <video class="p-editor" id="pEditor" src="videos/bts-lucru.mp4" poster="assets/editor.webp" autoplay muted loop playsinline aria-label="Magy — behind the scenes"></video>
     <div class="craft">
       <span class="w display">Filmez.</span>
       <span class="w display em">Editez.</span>
@@ -466,7 +466,9 @@ const chars2 = [...document.querySelectorAll(".l2 .ch")];
 const l1El = document.querySelector(".l1");
 const l2El = document.querySelector(".l2");
 const heroBg = document.querySelector(".hero-bg");
-if (reduceMotion && heroBg){ heroBg.removeAttribute("autoplay"); heroBg.pause(); }
+if (reduceMotion){
+  document.querySelectorAll("video[autoplay]").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
+}
 
 /* parallax la mouse */
 let tmx = 0, tmy = 0, pmx = 0, pmy = 0;
