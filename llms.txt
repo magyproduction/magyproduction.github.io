@@ -1,22 +1,34 @@
 # Magy Production
 
-> Videograf în București, România. Filmare și editare video profesională pentru branduri, clinici, agenții imobiliare, evenimente și automotive. Servicii cap-coadă: concept, filmare, montaj, color grading.
+> Videograf în București, România. Filmare și editare video pentru branduri, clinici, showroom-uri auto, restaurante și evenimente: reels pentru social media, filme de prezentare, aftermovie, color grading. English: https://magyproduction.ro/en/
 
 - Site: https://magyproduction.ro/
-- Portofoliu: https://magyproduction.ro/#lucrari
-- Contact: https://magyproduction.ro/contact/
+- Showreel și reels: https://magyproduction.ro/#reels
+- Proiecte pe client: https://magyproduction.ro/#clienti
+- Contact și cerere ofertă: https://magyproduction.ro/contact/
+- Telefon / WhatsApp: +40 728 072 003
 - Email: contact@magyproduction.ro
 - Instagram: https://instagram.com/bagel.magy
 - Zonă de lucru: bazat în București; filmează în toată România și în toată Europa
 
 ## Servicii
 
-- Video pentru branduri și afaceri (reclame, social media, prezentare)
-- Video pentru clinici și cabinete medicale
-- Video pentru imobiliare (tururi, prezentări proprietăți)
-- Video pentru evenimente (aftermovie, DJ, cluburi)
-- Video automotive (mașini, detailing, drone)
+- [Reels pentru branduri și social media](https://magyproduction.ro/reels-branduri/): Instagram, TikTok, YouTube Shorts, pe campanie sau lunar
+- [Video pentru clinici și cabinete medicale](https://magyproduction.ro/video-clinici/): reels educative cu medicii, prezentarea clinicii, grafică animată
+- [Video auto și showroom-uri](https://magyproduction.ro/video-auto/): prezentări de modele, service, detailing, dronă
+- [Video pentru restaurante și HoReCa](https://magyproduction.ro/video-restaurante/): food shots, cocktailuri, atmosferă
+- [Video evenimente](https://magyproduction.ro/video-evenimente/): aftermovie, discursuri, clipuri scurte
+- Editare video și color grading (DaVinci Resolve) pe materialul clientului
+
+## Proiecte pe client
+
+- [Flanco](https://magyproduction.ro/lucrari/flanco/): campanie Black Friday, 7 reels
+- [Autoklass](https://magyproduction.ro/lucrari/autoklass/): 13 reels pentru showroom-uri
+- [BCS Performance](https://magyproduction.ro/lucrari/bcs-performance/): service și vopsitorie
+- [Eclipsa](https://magyproduction.ro/lucrari/eclipsa/) și [La Rocca](https://magyproduction.ro/lucrari/la-rocca/): restaurante
+- [Dr. Smile](https://magyproduction.ro/lucrari/dr-smile/), [Dentalite](https://magyproduction.ro/lucrari/dentalite/), [Kinetolin](https://magyproduction.ro/lucrari/kinetolin/): clinici
+- [DJ Dia](https://magyproduction.ro/lucrari/dj-dia/): evenimente
 
 ## Despre
 
-Magy Production este un studio de videografie condus de un filmmaker și editor video profesionist (DaVinci Resolve), cu peste 100 de proiecte finalizate și 3000+ clipuri editate. Bazat în București, cu proiecte în toată România și în Europa.
+Magy Production este un studio de videografie condus de un filmmaker și editor video (DaVinci Resolve), cu peste 100 de proiecte finalizate și 3000+ clipuri editate. Bazat în București, cu proiecte în toată România și în Europa.

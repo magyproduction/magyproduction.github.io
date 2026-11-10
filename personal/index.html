@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
 <style>
   :root{
     --ink:#050505;
@@ -169,10 +170,12 @@
 </div>
 
 <nav class="topbar" id="topbar">
-  <a class="logo" href="#">Magy<i>.</i></a>
+  <a class="logo" href="/">Magy<i>.</i></a>
   <div class="navlinks">
-    <a href="../">Portofoliu</a>
-    <a href="../contact/">Contact</a>
+    <a href="/#reels">Portofoliu</a>
+    <a href="/#servicii">Servicii</a>
+    <a href="/personal/" class="on">Personal</a>
+    <a href="/contact/">Contact</a>
   </div>
 </nav>
 
@@ -273,8 +276,9 @@ function onOne(){
   const p = Math.round(loaded / FRAME_COUNT * 100);
   bar.style.width = p + "%";
   pct.textContent = String(p).padStart(3, "0");
-  if (loaded === FRAME_COUNT) setTimeout(() => loader.classList.add("done"), 350);
+  if (loaded === 12) setTimeout(() => loader.classList.add("done"), 250);
 }
+setTimeout(() => loader.classList.add("done"), 2500);
 for (let i = 0; i < FRAME_COUNT; i++){
   const img = new Image();
   img.onload = onOne;
@@ -415,5 +419,6 @@ function tick(){
 resize();
 requestAnimationFrame(tick);
 </script>
+<script src="/assets/site.js"></script>
 </body>
 </html>
